@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create New Order</title>
+</head>
+<body>
+<h1>Create New Order</h1>
+<form th:action="@{/orders}" th:object="${orderDto}" method="post">
+    <!-- Order Description -->
+    <label for="description">Description:</label>
+    <input type="text" th:field="*{description}" id="description" required />
+    <br><br>
+
+    <!-- Select Coffees -->
+    <label>Select Coffees:</label>
+    <br>
+    <div th:each="coffee : ${coffees}">
+        <input type="checkbox" th:field="*{items}" th:value="${coffee.id}" id="coffee__${coffee.id}" />
+        <label th:for="${'coffee__' + coffee.id}" th:text="${coffee.name}"></label>
+        <br>
+    </div>
+    <br>
+
+    <button type="submit">Create Order</button>
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Additionals List</title>
+</head>
+<body>
+<h1>Additionals</h1>
+<a href="/additionals/new">Add New Additional</a>
+<table border="1">
+    <tr>
+        <th>Description</th>
+        <th>Cost</th>
+        <th>Combine Cost</th>
+    </tr>
+    <tr th:each="additional : ${additionals}">
+        <td th:text="${additional.description}"></td>
+        <td th:text="${additional.cost}"></td>
+        <td th:text="${additional.combineCost}"></td>
+    </tr>
+</table>
+</body>
+</html>

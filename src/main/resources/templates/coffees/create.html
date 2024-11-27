@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Coffee</title>
+</head>
+<body>
+<h1>Add New Coffee</h1>
+<form action="/coffees" method="post" th:object="${coffeeDto}">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" required>
+    <br>
+    <label>Description:</label>
+    <textarea th:field="*{description}"></textarea>
+    <br>
+    <label>Price:</label>
+    <input type="number" th:field="*{price}" step="0.01" required>
+    <br>
+    <label>Additionals:</label>
+    <br>
+    <div th:each="additional : ${additionals}">
+        <input type="checkbox" th:field="*{additionalIds}" th:value="${additional.id}" />
+        <label th:text="${additional.description}"></label><br>
+    </div>
+    <br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>

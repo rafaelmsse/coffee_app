@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Coffees List</title>
+</head>
+<body>
+<h1>Coffees</h1>
+<a href="/coffees/new">Add New Coffee</a>
+<form action="/coffees/search" method="get">
+    <input type="text" name="query" placeholder="Search..." th:value="${query}">
+    <button type="submit">Search</button>
+</form>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="coffee : ${coffees}">
+        <td th:text="${coffee.name}"></td>
+        <td th:text="${coffee.description}"></td>
+        <td th:text="${coffee.price}"></td>
+    </tr>
+</table>
+</body>
+</html>

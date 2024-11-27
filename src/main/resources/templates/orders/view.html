@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Details</title>
+</head>
+<body>
+<h1>Order Details</h1>
+<p>ID: <span th:text="${order.id}"></span></p>
+<p>Description: <span th:text="${order.description}"></span></p>
+<p>Total Items: <span th:text="${order.totalItems}"></span></p>
+<p>Total: $<span th:text="${order.total}"></span></p>
+<p>Order Date: <span th:text="${#temporals.format(order.orderDate, 'yyyy-MM-dd HH:mm')}"></span></p>
+<h2>Items</h2>
+<table border="1">
+    <tr>
+        <th>Coffee</th>
+        <th>Calculated Price</th>
+    </tr>
+    <tr th:each="item : ${order.items}">
+        <td th:text="${item.coffee.name}"></td>
+        <td th:text="${item.calculatedPrice}"></td>
+    </tr>
+</table>
+</body>
+</html>

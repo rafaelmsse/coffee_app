@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Additional</title>
+</head>
+<body>
+<h1>Add New Additional</h1>
+<form action="/additionals" method="post" th:object="${additional}">
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" required>
+    <br>
+    <label>Cost:</label>
+    <input type="number" th:field="*{cost}" step="0.01" required>
+    <br>
+    <label>Combine Cost (e.g., 1.0 for 100%):</label>
+    <input type="number" th:field="*{combineCost}" step="0.01" required>
+    <br>
+    <button type="submit">Save</button>
+</form>
+</body>
+</html>
